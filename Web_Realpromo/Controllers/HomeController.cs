@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Web_Realpromo.Models;
+using AppRealPromo.Models;
 
-namespace Web_Realpromo.Controllers
+namespace AppRealPromo.Controllers
 {
     public class HomeController : Controller
     {
@@ -30,6 +30,16 @@ namespace Web_Realpromo.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public ActionResult CadastrarPromocoes()
+        {
+            return View();
+        }
+
+        public ActionResult Promocoes()
         {
             return View();
         }

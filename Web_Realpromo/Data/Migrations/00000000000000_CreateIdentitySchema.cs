@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Web_Realpromo.Data.Migrations
+namespace AppRealPromo.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

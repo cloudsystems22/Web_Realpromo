@@ -1,6 +1,6 @@
 using System;
 
-namespace Web_Realpromo.Models
+namespace AppRealPromo.Models
 {
     public class ErrorViewModel
     {

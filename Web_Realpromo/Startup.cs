@@ -9,11 +9,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Web_Realpromo.Data;
+using AppRealPromo.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AppRealPromo.Hubs;
 
-namespace Web_Realpromo
+namespace AppRealPromo
 {
     public class Startup
     {
@@ -41,6 +42,7 @@ namespace Web_Realpromo
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,6 +70,11 @@ namespace Web_Realpromo
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            //RPC --> END POINT
+            app.UseSignalR(cfg => {
+                cfg.MapHub<PromoHub>("/PromoHub");
             });
         }
     }
